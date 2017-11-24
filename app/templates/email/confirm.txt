@@ -1,0 +1,8 @@
+Your account was successfully created. To confirm your account, please copy paste the text below into your browser:
+
+
+{{ confirm_url }}
+
+
+Regards,
+The Voitheia admin

@@ -1,0 +1,80 @@
+{% extends "layout.html" %}
+
+
+{% block title %}
+    {{ user.username }}
+{% endblock %}
+
+{% block body %}
+
+<section class="home" id="home" data-stellar-background-ratio="0.4">
+			<div class="container">
+				<div class="row">
+					<div class="col-md-12">
+						<div class="st-home-unit">
+							<div class="hero-txt">
+								<div style = "background-color:#4ecdc4; box-shadow: inset 2px 2px 1px rgba(0,0,0,.05);" class="well well-lg">
+								<p class="hero-work">Support - Help - Promote</p>
+								<h2 class="hero-title">{{ user.username }}, {{user.title }}</h2>
+
+                                         <div class="row">
+
+					                        <div class="col-sm-5">
+					                    <p> Total Money Donated: <b>&#8377;{{ total_donated }}</b></p>
+
+
+					                    <table class="table table-hover">
+					                        Transaction History
+    <thead>
+      <tr>
+        <th>Transaction Amount</th>
+        <th>Receiver</th>
+        <th>Date Of Transaction</th>
+      </tr>
+    </thead>
+    <tbody>
+
+      <tr>
+        <td>John</td>
+        <td>Doe</td>
+        <td>john@example.com</td>
+      </tr>
+
+    </tbody>
+  </table>
+							</div>
+
+					                        <div class="col-sm-2">
+					                             <img class="img-responsive" src="{{ user.avatar(128) }}"></img>
+					                             </div>
+
+					                        <div class="col-sm-5">
+                                                  <table>
+                                 {{ user.followers.count()-1 }} followers
+                                  {% if not g.user.is_following(user) %}
+                                      <a style="color:white;" href="{{ url_for('follow', username=user.username) }}">Follow</a>
+                                  {% else %}
+                                      <a style="color:white;" href="{{ url_for('unfollow', username=user.username) }}">Unfollow</a>
+                                  {% endif %}
+                                  </p>
+                      </table>
+					                             </div>
+
+					</div>
+
+				</div>
+			</div>
+			</div>
+			</div>
+			</div>
+			</div>
+			<div class="mouse-icon"><div class="wheel"></div>
+		</section>
+
+
+  {% include "social_footer.html" %}
+
+  {% include "footer.html" %}
+
+
+{% endblock %}

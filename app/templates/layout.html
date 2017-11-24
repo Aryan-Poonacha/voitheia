@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title>{% block title %}{% endblock %}</title>
+
+        <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,800italic,800,700italic,700,600italic,400italic,600,300italic,300|Oswald:400,300,700' rel='stylesheet' type='text/css'>
+		<!-- Bootstrap -->
+		<link href="{{ url_for('static', filename='css/bootstrap.min.css')}}" rel="stylesheet">
+		<link href="{{ url_for('static', filename='css/font-awesome.min.css')}}" rel="stylesheet">
+		<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+
+
+		<link href="{{ url_for('static', filename='css/owl.carousel.css')}}" rel="stylesheet">
+		<link href="{{ url_for('static', filename='css/owl.theme.css')}}" rel="stylesheet">
+		<link href="{{ url_for('static', filename='css/owl.transitions.css')}}" rel="stylesheet">
+		<link href="{{ url_for('static', filename='css/goalProgress.css')}}" rel="stylesheet">
+
+		<!--TEMPLATE CSS -->
+		<link href="{{ url_for('static', filename='css/style.css')}}" rel="stylesheet">
+
+		<!--CUSTOM CSS -->
+		<link href="{{ url_for('static', filename='css/style2.css')}}" rel="stylesheet">
+
+		<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+		<script src="{{ url_for('static', filename='js/jquery.min.js') }}"></script>
+		<!-- Include all compiled plugins (below), or include individual files as needed -->
+		<script src="{{ url_for('static', filename='js/bootstrap.min.js') }}"></script>
+		<script src="{{ url_for('static', filename='js/jquery.easing.min.js') }}"></script>
+		<script src="{{ url_for('static', filename='js/jquery.appear.js') }}"></script>
+		<script src="{{ url_for('static', filename='js/jquery.nicescroll.min.js') }}"></script>
+		<script src="{{ url_for('static', filename='js/jquery.countTo.js') }}"></script>
+		<script src="{{ url_for('static', filename='js/jquery.shuffle.modernizr.js') }}"></script>
+		<script src="{{ url_for('static', filename='js/jquery.shuffle.js') }}"></script>
+		<script src="{{ url_for('static', filename='js/owl.carousel.js') }}"></script>
+		<script src="{{ url_for('static', filename='js/jquery.ajaxchimp.min.js') }}"></script>
+		<script src="{{ url_for('static', filename='js/goalProgress.min.js') }}"></script>
+
+		<script src="https://cdn.jsdelivr.net/jquery.stellar/0.6.2/jquery.stellar.js"></script>
+		<script src="https://cdn.jsdelivr.net/jquery.stellar/0.6.2/jquery.stellar.min.js"></script>
+
+		<script src="//cdnjs.cloudflare.com/ajax/libs/jquery-form-validator/2.3.26/jquery.form-validator.min.js"></script>
+
+		<!-- TEMPLATE JS -->
+		<script src="{{ url_for('static', filename='js/script.js') }}"></script>
+
+    <!-- CUSTOM JS -->
+		<script src="{{ url_for('static', filename='js/script2.js') }}"></script>
+
+		<!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+		<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+		<!--[if lt IE 9]>
+		<script src="{{ url_for('static', filename='js/html5shiv.min.js') }}"></script>
+		<script src="{{ url_for('static', filename='js/respond.min.js') }}"></script>
+		<![endif]-->
+
+
+    </head>
+
+    <body data-spy="scroll" data-target=".main-nav">
+
+		<header class="st-navbar">
+			<nav class="navbar navbar-default navbar-fixed-top clearfix" role="navigation">
+				<div class="container"><!-- Brand and toggle get grouped for better mobile display -->
+					<div class="navbar-header">
+						<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#sept-main-nav">
+							<span class="sr-only">Toggle navigation</span>
+							<span class="icon-bar"></span>
+							<span class="icon-bar"></span>
+							<span class="icon-bar"></span>
+						</button>
+						<a class="navbar-brand" href="{{ url_for('index') }}"><img src="{{ url_for('static', filename='photos/logo.png')}}" alt="" class="img-responsive"></a>
+					</div>
+
+
+						<div class="collapse navbar-collapse main-nav" id="sept-main-nav">
+
+						<ul class="nav navbar-nav navbar-right">
+							<li><a href="{{ url_for('index') }}"><i class="fa fa-compass fa-1.5x"></i> Explore Causes</a></li>
+							<li><a href="{{ url_for('cause_submit') }}"><i class="fa fa-paper-plane fa-1.5x"></i> Submit Your Cause</a></li>
+						</ul>
+
+						<ul class="nav navbar-nav navbar-left">
+							{% if g.user.is_authenticated %}
+							<li><a href="{{ url_for('user', username=g.user.username) }}">Your Profile</a></li>
+							<li><a href="{{ url_for('logout') }}">Logout</a></li>
+							{% else %}
+							<li><a href="{{ url_for('login') }}" >Login</a></li>
+							<li><a href="{{ url_for('register') }}">Create Account</a></li>
+							{% endif %}
+						</ul>
+
+
+         {% with messages = get_flashed_messages() %}
+             {% if messages %}
+                     <!-- Modal -->
+<div id="ErrorModal" class="modal fade" role="dialog">
+  <div class="modal-dialog modal-sm">
+
+    <!-- Modal content-->
+    <div class="modal-content">
+      <div style="text-align:center;" class="modal-body">
+
+                 {% for message in messages %}
+                    {{ message }}
+                    <br>
+                {% endfor %}
+
+                </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+      </div>
+      </div>
+    </div>
+  </div>
+
+<script type="text/javascript">
+    $(window).on('load',function(){
+        $('#ErrorModal').modal('show');
+    });
+</script>
+            {% endif %}
+        {% endwith %}
+
+
+						</div>
+					</div><!-- /.navbar-collapse -->
+			</nav>
+		</header>
+
+<main>
+        {% block body %} {% endblock %}
+
+</main>
+
+    </body>
+</html>

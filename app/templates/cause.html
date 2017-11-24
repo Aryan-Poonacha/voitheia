@@ -1,0 +1,242 @@
+{% extends "layout.html" %}
+
+{% block title %} {{ cause.cause_name }} {% endblock %}
+
+{% block body %}
+
+<section style="background-image: url('../static/upload/causes/{{ cause.id }}/images/{{ cause.background_image }}') " class="home" id="home" data-stellar-background-ratio="0.4">
+			<div class="container">
+				<div class="row">
+					<div class="col-md-12">
+						<div class="st-home-unit">
+							<div class="hero-txt">
+								{% if cause.cause_subtitle %}
+								<p class="hero-work">{{ cause.cause_subtitle }}</p>
+								{% endif %}
+								<h2 class="hero-title">{{ cause.cause_name }}</h2>
+
+										<section>
+			<div class="container">
+				<div class="row">
+					<div class="col-md-12">
+						<div id="sample_goal"></div>
+						</div>
+					</div>
+				</div>
+			</section>
+<br>
+			    <section id="payment">
+    <div class="container">
+    <div class="row">
+    	<div class="col-xs-6 col-sm-6 col-xs-6 col-md-6 col-lg-6">
+    <a href="https://www.instamojo.com/{{cause.account_name}}" rel="im-checkout" data-behaviour="remote" data-style="flat" data-text="Checkout With Instamojo"></a>
+<script src="https://js.instamojo.com/v1/button.js"></script>
+
+    </div>
+    <div class="col-xs-6 col-sm-6 col-xs-6 col-md-6 col-lg-6">
+    	<a href="{{ button_url }}/{{ cause.cause_name }}" class="btn {{ button_type }}">{{ button_text }}</a>
+    	</div>
+</div>
+</div>
+</section>
+								<!-- <p class="hero-sub-title">We Provide Hight Quality Bootstrap Template</p> -->
+								<!-- <a href="#" class="btn btn-default btn-lg left-btn">Purchase Now</a> -->
+							</div>
+
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="mouse-icon"><div class="wheel"></div></div>
+		</section>
+
+<p style="display:none;" id = 'data1'>{{cause.goal}}</p>
+<p style="display:none;"  id = 'data2'>{{cause.current_amount}}</p>
+
+{% if cause.quote1_text %}
+{% if cause.quote2_text %}
+{% if cause.quote3_text %}
+{% if cause.quote1_image %}
+{% if cause.quote2_image %}
+{% if cause.quote3_image %}
+{% if cause.quote1_person %}
+{% if cause.quote2_person %}
+{% if cause.quote3_person %}
+		<section class="testimonials">
+			<div class="container">
+				<div class="row">
+					<div class="col-md-12">
+						<div class="testimonials-carousel">
+							<ul>
+								<li>
+																		<div class="testimonial">
+										<div class="testimonial-img">
+											<img src="../static/upload/causes/{{ cause.id }}/images/{{ cause.quote1_image }}" alt="">
+										</div>
+										<blockquote>
+											<p>{{ cause.quote1_text }}</p>
+											<footer>{{ cause.quote1_person }}</footer>
+										</blockquote>
+									</div>
+								</li>
+								<li>
+									<div class="testimonial">
+										<div class="testimonial-img">
+											<img src="../static/upload/causes/{{ cause.id }}/images/{{ cause.quote2_image }}" alt="">
+										</div>
+										<blockquote>
+											<p>{{ cause.quote2_text }}</p>
+											<footer>{{ cause.quote2_person }}</footer>
+										</blockquote>
+									</div>
+								</li>
+								<li>
+									<div class="testimonial">
+										<div class="testimonial-img">
+											<img src="../static/upload/causes/{{ cause.id }}/images/{{ cause.quote3_image }}" alt="">
+										</div>
+										<blockquote>
+											<p>{{ cause.quote3_text }}</p>
+											<footer>{{ cause.quote3_person }}</footer>
+										</blockquote>
+									</div>
+								</li>
+							</ul>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+
+		{% endif %}
+		{% endif %}
+		{% endif %}
+		{% endif %}
+		{% endif %}
+		{% endif %}
+		{% endif %}
+		{% endif %}
+		{% endif %}
+
+
+
+
+
+	<section class="pricing" id="pricing">
+      <div class="container">
+
+      	{% for article in articles %}
+
+      	{% if article.first_heading %}
+      	<div class="section-title st-center">
+        <h3>{{ article.first_heading }}</h3>
+      </div>
+      {% endif %}
+        <div class="row">
+          <div class="col-md-6">
+          	{% if article.first_subheading %}
+						<div class="section-title st-center">
+			        <p>{{ article.first_subheading }}</p>
+			      </div>
+			      {% endif %}
+
+			      {% if article.first_article %}
+						<p id="highlight">{{ article.first_article }}</p>
+						{% endif %}
+					</div>
+					<div class="col-md-6">
+						<img alt="please update your browser to view this image." src="../static/upload/causes/{{ cause.id }}/articles/{{ article.id }}/{{article.first_image}}" class="img-responsive"></img>
+					</div>
+				</div>
+
+				{% if article.second_heading %}
+				      	<div class="section-title st-center">
+        					<h3>{{ article.second_heading }}</h3>
+      					</div>
+      					{% endif %}
+				<div class="row">
+					<div class="col-md-6">
+						<img alt="please update your browser to view this image." src="../static/upload/causes/{{ cause.id }}/articles/{{ article.id }}/{{article.second_image }}" class="img-responsive"></img>
+					</div>
+					<div class="col-md-6">
+						{% if article.second_subheading %}
+						<div class="section-title st-center">
+							<p>{{ article.second_subheading }}</p>
+						</div>
+						{% endif %}
+
+						{% if article.second_article %}
+						<p id="highlight">{{ article.second_article }}</p>
+						{% endif %}
+					</div>
+				</div>
+
+				{% endfor %}
+      </div>
+    </section>
+
+
+    <br>
+
+    <section id="payment">
+    <div class="container">
+    <div class="row">
+    	<div class="col-xs-12 col-sm-12 col-xs-12 col-md-12 col-lg-12">
+    <a href="https://www.instamojo.com/@voitheia/" rel="im-checkout" data-behaviour="remote" data-style="flat" data-text="Checkout With Instamojo"></a>
+<script src="https://js.instamojo.com/v1/button.js"></script>
+    </div>
+</div>
+</div>
+</section>
+
+<section class="funfacts" data-stellar-background-ratio="0.4">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-3">
+            <div class="funfact">
+              <div class="st-funfact-icon"><i class="fa {{ cause.stat1_icon }}"></i></div>
+              <div class="st-funfact-counter" ><span class="st-ff-count" data-from="0" data-to="{{cause.stat1_number}}" data-runit="1">0</span></div>
+              <strong class="funfact-title">{{ cause.stat1_text }}</strong>
+            </div><!-- .funfact -->
+          </div>
+          <div class="col-md-3">
+            <div class="funfact">
+              <div class="st-funfact-icon"><i class="fa {{ cause.stat2_icon }}"></i></div>
+              <div class="st-funfact-counter"><span class="st-ff-count" data-from="0" data-to="{{cause.stat2_number}}" data-runit="1">0</span>+</div>
+              <strong class="funfact-title">{{ cause.stat2_text }}</strong>
+            </div><!-- .funfact -->
+          </div>
+          <div class="col-md-3">
+            <div class="funfact">
+              <div class="st-funfact-icon"><i class="fa {{ cause.stat3_icon }}"></i></div>
+              <div class="st-funfact-counter"><span class="st-ff-count" data-from="0" data-to="{{cause.stat3_number }}" data-runit="1">0</span></div>
+              <strong class="funfact-title">{{ cause.stat3_text }}</strong>
+            </div><!-- .funfact -->
+          </div>
+          <div class="col-md-3">
+            <div class="funfact">
+              <div class="st-funfact-icon"><i class="fa {{ cause.stat4_icon }}"></i></div>
+              <div class="st-funfact-counter" ><span class="st-ff-count" data-from="0" data-to="{{ cause.stat4_number }}" data-runit="1">26</span>%</div>
+              <strong class="funfact-title">{{ cause.stat4_text }}</strong>
+            </div><!-- .funfact -->
+          </div>
+        </div>
+      </div>
+    </section>
+
+{% include "footer.html" %}}
+
+<script type="text/javascript">
+		$(document).ready(function(){
+			var goal = parseInt($("#data1").html())
+			var curr = parseInt($("#data2").html())
+			$('#sample_goal').goalProgress({
+				goalAmount: goal,
+				currentAmount: curr,
+				textBefore: '&#8377;',
+				textAfter: ' raised. Need &#8377;' + (goal-curr) + " more."
+			});
+		});
+	</script>
+
+{% endblock %}

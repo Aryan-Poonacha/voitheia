@@ -1,0 +1,109 @@
+{% extends "layout.html" %}
+
+{% block title %} {{ title }} {% endblock %}
+
+{% block body %}
+
+<section class="home" id="home" data-stellar-background-ratio="0.4">
+			<div class="container">
+				<div class="row">
+					<div class="col-md-12">
+
+
+						<div>
+							<div class="hero-txt">
+								<div style = "background-color:#4ecdc4; box-shadow: inset 2px 2px 1px rgba(0,0,0,.05);" class="well well-lg">
+								<p class="hero-work">Support - Help - Promote</p>
+								<br>
+								<p style="font-size:120%; color:white;" id="highlight"> Creating an account is purely optional if you just want to donate to a cause! However, doing so gives you the following features:</p>
+								<ul style="font-size:120%; color:white;" id="highlight">
+									<li>Keep track of all donations!</li>
+									<li>Follow other user accounts and causes and be notified when a particular cause has a new fundraiser!</li>
+									<li>Get your own title based on how much you've donated!</li>
+								</ul>
+								<h2 class="hero-title">Create Account</h2>
+
+
+	<form action="" method = "post" name = "login">
+	{{ form.hidden_tag() }}
+
+												<div class="form-group">
+    											<label for="email">Username:</label>
+    											<p style="color:black;">
+											 {{ form.username(class_="form-control") }}
+											 </p>
+											 {% if form.username.errors %}
+											 <div class="alert alert-danger">
+											 	{% for error in form.username.errors %}
+           											 {{error}}<br>
+          										{% endfor %}
+											 </div>
+											 {% endif %}
+											 </div>
+
+
+											<div class="form-group">
+    											<label for="email">Email Address:</label>
+    											<p style="color:black;">
+											 {{ form.email(class_="form-control") }}
+											 </p>
+											 {% if form.email.errors %}
+											 <div class="alert alert-danger">
+											 	{% for error in form.email.errors %}
+           											 {{error}}<br>
+          										{% endfor %}
+											 </div>
+											 {% endif %}
+											 </div>
+
+	 										<div class="form-group">
+    											<label for="pwd">Password:</label>
+    											<p style="color:black;">
+											 {{ form.password(class_="form-control") }}
+											 <br>
+											 </p>
+											 {% if form.password.errors %}
+											 <div class="alert alert-danger">
+											 	{% for error in form.password.errors %}
+           											 {{error}}<br>
+          										{% endfor %}
+											 </div>
+											 {% endif %}
+											 </div>
+
+											<div class="form-group">
+    											<label for="pwd">Confirm Password:</label>
+    											<p style="color:black;">
+											 {{ form.confirm_password(class_="form-control") }}
+											 <br>
+											 </p>
+											 {% if form.confirm_password.errors %}
+											 <div class="alert alert-danger">
+											 	{% for error in form.confirm_password.errors %}
+           											 {{error}}<br>
+          										{% endfor %}
+											 </div>
+											 {% endif %}
+											 </div>
+											 <br>
+											 <div style="text-align:center;margin: 0 auto;width: 304px;">
+											 {{ form.recaptcha }}
+											 </div>
+
+
+
+	<div class="checkbox">
+    												{{ form.remember_me }}<label>Subscribe To Our Newsletter</label>
+											</div>
+											<input style="border-color:white;" class="btn btn-main btn-lg" type = "submit" value="Create Account">
+	</form>
+	</div>
+						</div>
+					</div>
+
+				</div>
+			</div>
+			<div class="mouse-icon"><div class="wheel"></div></div>
+		</section>
+
+{% endblock %}

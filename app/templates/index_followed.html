@@ -1,0 +1,45 @@
+{% extends "layout.html" %}
+
+{% block title %} {{ title }} {% endblock %}
+
+{% block body %}
+
+<section style="{{ url_for('static', filename = 'images/background.gif') }}" class="home" id="home" data-stellar-background-ratio="0.4">
+			<div class="container">
+				<div class="row">
+					<div class="col-md-12">
+						<div class="st-home-unit">
+							<div class="hero-txt">
+								<p class="hero-work">Help - Support - Promote</p>
+								<h2 class="hero-title">Causes You Follow</h2>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="mouse-icon"><div class="wheel"></div></div>
+		</section>
+<!-- posts is a Paginate object -->
+
+<!-- FOLLOWED CAUSES -->
+	<section class="service" id="service">
+			<div class="container">
+<div class="container-fluid">
+<div class="row">
+	<br>
+	<div class="section-title st-center">
+			        <p>Causes You Follow</p>
+</div>
+{% for cause in followed_causes %}
+  {% include 'cause_div.html' %}
+{% endfor %}
+</div>
+</div>
+</section>
+
+
+{% include "social_footer.html" %}
+
+{% include "footer.html" %}
+
+{% endblock %}

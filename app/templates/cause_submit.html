@@ -1,0 +1,99 @@
+{% extends "layout.html" %}
+
+{% block title %} {{ title }} {% endblock %}
+
+{% block body %}
+
+<section class="home" id="home" data-stellar-background-ratio="0.4">
+			<div class="container">
+				<div class="row">
+					<div class="col-md-12">
+
+
+						<div>
+							<div class="hero-txt">
+								<div style = "background-color:#4ecdc4; box-shadow: inset 2px 2px 1px rgba(0,0,0,.05);" class="well well-lg">
+								<p class="hero-work">Support - Help - Promote</p>
+								<br>
+								<p style="font-size:120%; color:white;" id="highlight">Do you feel that a cause that you know or undertake should be on Voitheia? Fill out this quick form and we will let you know soon! Expect a reply to the provided email in 2-3 working days.</p>
+								<p style="font-size:120%; color:white;" id="highlight">A Cause should, in general, provide the following information:
+
+								<ol style="font-size:120%; color:white;" id="highlight">
+									<li>How it does good. In general, the activities, undertaken by your cause.</li>
+									<li>The amount of funds you require and aim to raise through Voitheia.</li>
+									<li>If you are an NGO, then appropriate details (such as 12A/12AA/80C).</li>
+									<li>A brief explanation of how you will use the funds you are provided.</li>
+								</ol>
+
+								<h2 class="hero-title">Submit</h2>
+
+
+	<form action="" method = "post" name = "login">
+	{{ form.hidden_tag() }}
+
+												<div class="form-group">
+    											<label for="email">Cause Name:</label>
+    											<p style="color:black;">
+											 {{ form.cause_name(class_="form-control") }}
+											 </p>
+											 {% if form.cause_name.errors %}
+											 <div class="alert alert-danger">
+											 	{% for error in form.cause_name.errors %}
+           											 {{error}}<br>
+          										{% endfor %}
+											 </div>
+											 {% endif %}
+											 </div>
+
+
+											<div class="form-group">
+    											<label for="email">Email Address:</label>
+    											<p style="color:black;">
+											 {{ form.email(class_="form-control") }}
+											 </p>
+											 {% if form.email.errors %}
+											 <div class="alert alert-danger">
+											 	{% for error in form.email.errors %}
+           											 {{error}}<br>
+          										{% endfor %}
+											 </div>
+											 {% endif %}
+											 </div>
+
+	 										<div class="form-group">
+    											<label for="email">Description:</label>
+    											<p style="color:black;">
+											 {{ form.description(rows = '20', cols = '100', class_="form-control") }}
+											 <br>
+											 </p>
+											 {% if form.description.errors %}
+											 <div class="alert alert-danger">
+											 	{% for error in form.description.errors %}
+           											 {{error}}<br>
+          										{% endfor %}
+											 </div>
+											 {% endif %}
+											 </div>
+
+											 <br>
+											 <div style="text-align:center;margin: 0 auto; width: 304px;">
+											 {{ form.recaptcha }}
+											 </div>
+											 <br>
+											<input style="border-color:white;" class="btn btn-main btn-lg" type = "submit" value="Submit">
+	</form>
+	</div>
+						</div>
+					</div>
+
+				</div>
+			</div>
+			<div class="mouse-icon"><div class="wheel"></div></div>
+		</section>
+
+
+		{% include "social_footer.html" %}
+
+		{% include "footer.html" %}
+
+{% endblock %}

@@ -1,0 +1,71 @@
+{% extends "layout.html" %}
+
+{% block title %} {{ title }} {% endblock %}
+
+{% block body %}
+
+<section style="{{ url_for('static', filename = 'images/landing_bg.png') }}" class="home" id="home" data-stellar-background-ratio="0.4">
+			<div class="container">
+				<div class="row">
+					<div class="col-md-12">
+						<div class="st-home-unit">
+							<div class="hero-txt">
+								<p class="hero-work">Help - Support - Promote</p>
+								<h2 class="hero-title">FIND CAUSES YOU LOVE</h2>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="mouse-icon"><div class="wheel"></div></div>
+		</section>
+
+<!-- FOLLOWED CAUSES -->
+{% if current_user.is_authenticated %}
+{% if followed_causes %}
+	<section class="service" id="service">
+			<div class="container">
+<div class="container-fluid">
+<div class="row">
+	<br>
+	<div class="section-title st-center">
+			        <p>Causes You Follow</p>
+</div>
+{% for cause in followed_causes %}
+  {% include 'cause_div.html' %}
+{% endfor %}
+</div>
+<br>
+</div>
+</section>
+
+{% endif %}
+{% endif %}
+
+<!-- TEMP -->
+
+	<section class="service" id="service">
+			<div class="container">
+<div class="container-fluid">
+<div class="row">
+	<br>
+	<div class="section-title st-center">
+			        <p>New Causes</p>
+</div>
+
+{% for cause in newest_causes %}
+  {% include 'cause_div.html' %}
+{% endfor %}
+
+</div>
+<br>
+</div>
+</section>
+
+
+{% include "social_footer.html" %}
+
+{% include "footer.html" %}
+
+
+{% endblock %}

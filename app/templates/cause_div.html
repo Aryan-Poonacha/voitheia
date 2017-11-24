@@ -1,0 +1,29 @@
+<a href="/cause/{{ cause.cause_name }}">
+<div class="col-lg-4 col-sm-4 col-xs-4 col-md-4 portfolio-item">
+          <div class="card h-100">
+            <img class="card-img-top img-responsive" src="../static/upload/causes/{{ cause.id }}/images/{{ cause.background_image }}" alt="">
+            <div class="card-body">
+              <h4 class="card-title">
+                <a href="/cause/{{ cause.cause_name }}">{{ cause.cause_name }}</a>
+              </h4>
+              <p class="card-text">&#8377;<b id="get-flask2">{{ cause.current_amount }}</b> funded</p>
+              <p class="card-text">&#8377;<b id="get-flask">{{ cause.goal }}</b> required</p>
+                       <div class="progress">
+                    <div class="progress-bar" role="progressbar" aria-valuenow="{{cause.current_amount}}"
+                    aria-valuemin="0" aria-valuemax="{{cause.goal}}" style="width:70%">
+                      70%
+                    </div>
+                  </div>
+            </div>
+          </div>
+          </a>
+
+          <script>
+          $(document).ready(function() {
+            var goal = parseInt($("#get-flask").html());
+            var curr = parseInt($("#get-flask2").html());
+            var width = $(".progress-bar").css("width");
+            $(".progress-bar").css("width", ((curr/goal)*100)+"%");
+          });
+          </script>
+</div>
