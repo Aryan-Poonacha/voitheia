@@ -89,7 +89,6 @@ def login():
 
         #if the form was filled appropriately and correctly AND if the username is a match AND if the password is a match
         if form.validate_on_submit() and ((the_username.email == form.username.data) or (the_username.username == form.username.data)) and the_username.check_password(form.password.data):
-            print("A", file = sys.stderr)
             #remember whether the user wants to be remembered as True/False in the session object of the current user
             session['remember_me'] = form.remember_me.data;
 
